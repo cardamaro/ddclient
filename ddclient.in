@@ -1271,8 +1271,8 @@ sub _read_config {
             ## allow {host} to be a comma separated list of hosts
             foreach my $h (split_by_comma($host)) {
                 ## save a copy of the current globals
-                $config{$h} = { %locals };
-                $config{$h}{'host'} = $h;
+                $config{$locals{'login'} . "." . $h} = { %locals };
+                $config{$locals{'login'} . "." . $h}{'host'} = $h;
             }
         }
         %passwords = ();
